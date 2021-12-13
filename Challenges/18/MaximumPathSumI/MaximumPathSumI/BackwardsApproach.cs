@@ -43,20 +43,25 @@ namespace MaximumPathSumI
         {
             for (int i = 0; i <= row; i++)
             {
-                // left path has higher value
-                if (bestValues[row+1][i] > bestValues[row+1][i+1])
-                {
-                    bestValues[row][i] = bestValues[row + 1][i] + triangle[row][i];
-                    bestPaths[row][i] = Utils.CopyListOfInts(bestPaths[row + 1][i]);
-                    bestPaths[row][i].Prepend(i);
-                } 
-                else // right path higher
-                {
-                    bestValues[row][i] = bestValues[row+1][i+1] + triangle[row][i];
-                    bestPaths[row][i] = Utils.CopyListOfInts(bestPaths[row+1][i+1]);
-                    bestPaths[row][i].Prepend(i);
-                }
+                CalculateOptimalValueForEntry(row, i, triangle, bestValues, bestPaths);
             }
         }
-    }
+
+        private static void CalculateOptimalValueForEntry(int row, int col, Triangle<int> triangle, Triangle<int> bestValues, Triangle<List<int>> bestPaths)
+        {
+            // left path has higher value
+            if (bestValues[row + 1][i] > bestValues[row + 1][col + 1])
+            {
+                bestValues[row][i] = bestValues[row + 1][col] + triangle[row][col];
+                bestPaths[row][i] = new List<int> { col };
+                bestPaths[row][i].AddRange(bestPaths[row + 1][col]);
+
+            }
+            else // right path higher
+            {
+                bestValues[row][i] = bestValues[row + 1][col + 1] + triangle[row][col];
+                bestPaths[row][i] = new List<int> { col };
+                bestPaths[row][i].AddRange(bestPaths[row + 1][col + 1]);
+            }
+        }
 }

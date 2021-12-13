@@ -8,7 +8,7 @@ var backwardsPath = BackwardsApproach.GetPathOfMaxValues(triangle);
 Console.WriteLine("Solution of Brute Force approach:");
 Utils.PrintSolution(bruteForcePath, triangle);
 
-Console.WriteLine("Solution of Backwards approach:");
-Utils.PrintSolution(bruteForcePath, triangle);
+Console.WriteLine("\nSolution of Backwards approach:");
+Utils.PrintSolution(backwardsPath, triangle);
 
 Console.ReadKey();
