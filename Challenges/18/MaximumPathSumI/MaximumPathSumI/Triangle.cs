@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace MaximumPathSumI
 {
-    internal class Triangle
+    internal class Triangle<T>
     {
-        private List<int[]> _entries;
+        private List<T[]> _entries;
         public Triangle(int rows)
         {
-            _entries = new List<int[]>();
+            _entries = new List<T[]>();
             for (int i = 0; i < rows; i++)
             {
-                _entries.Add(new int[i+1]);
+                _entries.Add(new T[i+1]);
             }
         }
 
@@ -23,28 +23,28 @@ namespace MaximumPathSumI
             return _entries.Count;
         }
 
-        public int[] this[int row]
+        public T[] this[int row]
         {
             get => GetRow(row);
             set => SetRow(row, value);
         }
 
-        public void SetEntry(int row, int col, int value)
+        public void SetEntry(int row, int col, T value)
         {
             _entries[row][col] = value;
         }
 
-        public void SetRow(int row, int[] values)
+        public void SetRow(int row, T[] values)
         {
             _entries[row] = values;
         }
 
-        public int GetEntry(int row, int col)
+        public T GetEntry(int row, int col)
         {
             return _entries[row][col];
         }
 
-        public int[] GetRow(int row)
+        public T[] GetRow(int row)
         {
             return _entries[row];
         }

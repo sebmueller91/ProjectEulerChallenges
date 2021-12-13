@@ -8,10 +8,10 @@ namespace MaximumPathSumI
 {
     public static class Utils
     {
-        internal static Triangle ReadTriangleFromFile(string path = @"..\..\..\..\..\triangle.txt")
+        internal static Triangle<int> ReadTriangleFromFile(string path = @"..\..\..\..\..\triangle.txt")
         {
             var lines = System.IO.File.ReadAllLines(path);
-            var triangle = new Triangle(lines.Length);
+            var triangle = new Triangle<int>(lines.Length);
 
             for (int i = 0; i < lines.Length; i++)
             {
@@ -25,12 +25,12 @@ namespace MaximumPathSumI
             return triangle;
         }
 
-        internal static int GetSummarizedPathValue(List<int> path, Triangle triangle)
+        internal static int GetSummarizedPathValue(List<int> path, Triangle<int> triangle)
         {
             return GetSummarizedPathValue(path.ToArray(), triangle);
         }
 
-        internal static int GetSummarizedPathValue(int[] path, Triangle triangle)
+        internal static int GetSummarizedPathValue(int[] path, Triangle<int> triangle)
         {
             int sum = 0;
             for (int i = 0; i < path.Length; i++)
@@ -45,6 +45,17 @@ namespace MaximumPathSumI
             var c = new List<int>();
             c.AddRange(a);
             return c;
+        }
+
+        internal static void PrintSolution(List<int> path, Triangle<int> triangle)
+        {
+            Console.WriteLine("Index Value");
+            for (int i = 0; i < path.Count; i++)
+            {
+                Console.Write(i + " ");
+                Console.WriteLine(triangle[i][path[i]]);
+            }
+            Console.WriteLine("Sum: " + Utils.GetSummarizedPathValue(path, triangle));
         }
     }
 }

@@ -2,14 +2,13 @@
 using MaximumPathSumI;
 
 var triangle = Utils.ReadTriangleFromFile();
-var path = BruteForceApproach.GetPathOfMaxValues(triangle);
-var sum = Utils.GetSummarizedPathValue(path, triangle);
+var bruteForcePath = BruteForceApproach.GetPathOfMaxValues(triangle);
+var backwardsPath = BackwardsApproach.GetPathOfMaxValues(triangle);
 
-Console.WriteLine("Index Value");
-for (int i = 0; i < path.Count; i++) {
-    Console.Write(i + " ");
-    Console.WriteLine(triangle[i][path[i]]);
-}
-Console.WriteLine("Sum: " + Utils.GetSummarizedPathValue(path, triangle));
+Console.WriteLine("Solution of Brute Force approach:");
+Utils.PrintSolution(bruteForcePath, triangle);
+
+Console.WriteLine("Solution of Backwards approach:");
+Utils.PrintSolution(bruteForcePath, triangle);
 
 Console.ReadKey();

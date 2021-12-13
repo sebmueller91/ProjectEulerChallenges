@@ -12,12 +12,12 @@ namespace MaximumPathSumI
         /// Calculates the path of adjacent values through the trianle with the maximum summed up values
         /// </summary>
         /// <returns>Indices of path entries</returns>
-        internal static List<int> GetPathOfMaxValues(Triangle triangle)
+        internal static List<int> GetPathOfMaxValues(Triangle<int> triangle)
         {
             return GetMaxPath(triangle, new List<int> { 0 });
         }
 
-        private static List<int> GetMaxPath(Triangle triangle, List<int> traversedPath)
+        private static List<int> GetMaxPath(Triangle<int> triangle, List<int> traversedPath)
         {
             if (traversedPath.Count == triangle.GetNumerOfRows())
             {
