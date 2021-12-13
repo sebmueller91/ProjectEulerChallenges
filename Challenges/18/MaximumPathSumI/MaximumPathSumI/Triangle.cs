@@ -18,6 +18,11 @@ namespace MaximumPathSumI
             }
         }
 
+        public int GetNumerOfRows()
+        {
+            return _entries.Count;
+        }
+
         public int[] this[int row]
         {
             get => GetRow(row);

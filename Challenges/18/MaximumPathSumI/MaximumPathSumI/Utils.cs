@@ -24,5 +24,27 @@ namespace MaximumPathSumI
 
             return triangle;
         }
+
+        internal static int GetSummarizedPathValue(List<int> path, Triangle triangle)
+        {
+            return GetSummarizedPathValue(path.ToArray(), triangle);
+        }
+
+        internal static int GetSummarizedPathValue(int[] path, Triangle triangle)
+        {
+            int sum = 0;
+            for (int i = 0; i < path.Length; i++)
+            {
+                sum += triangle[i][path[i]];
+            }
+            return sum;
+        }
+
+        internal static List<int> CopyListOfInts(List<int> a)
+        {
+            var c = new List<int>();
+            c.AddRange(a);
+            return c;
+        }
     }
 }
