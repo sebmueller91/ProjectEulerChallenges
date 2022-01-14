@@ -6,7 +6,7 @@ public class Main {
 	public static void main(String[] args) {
 		int[][] matrix = Utils.readInMatrix("matrix.txt");
 		MinPath minPath = new MinPath(testMatrix);
-		ArrayList<Cell> path = minPath.getMinPathTwoWays();
+		ArrayList<Cell> path = minPath.getMinPathFourWays();
 		printPath(path, testMatrix);
 	}
 	
